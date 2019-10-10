@@ -1,0 +1,64 @@
+<div class="sidebar" data-image="assets/images/sidebar-5.jpg">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="#" class="simple-text">
+                        <?php echo SITE_NAME;?>
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li>
+                        <a class="nav-link active" href="dashboard">
+                            <i class="nc-icon nc-chart-pie-35"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin/profile">
+                            <i class="nc-icon nc-air-baloon"></i>
+                            <p>Biodata</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin/pengalaman">
+                            <i class="nc-icon nc-bulb-63"></i>
+                            <p>Pengalaman</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./table.html">
+                            <i class="nc-icon nc-spaceship"></i>
+                            <p>Education</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./table.html">
+                            <i class="nc-icon nc-settings-90"></i>
+                            <p>Skill</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./table.html">
+                            <i class="nc-icon nc-bullet-list-67"></i>
+                            <p>Social Media</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./icons.html">
+                            <i class="nc-icon nc-atom"></i>
+                            <p>Icons</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./maps.html">
+                            <i class="nc-icon nc-pin-3"></i>
+                            <p>Maps</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
