@@ -33,7 +33,7 @@ class Pengalaman_model extends CI_Model{
     
     public function getById($id)
     {
-        return $this->db->get_where('pengalaman', ["id" => $id])->row();
+        return $this->db->get_where('pengalaman', ["pengalaman_id" => $id])->row();
     }
 
     public function simpan()
@@ -51,17 +51,16 @@ class Pengalaman_model extends CI_Model{
     public function edit()
     {
         $post                   = $this->input->post();
-        $this->pengalaman_id    = $post["pengalaman_id"];
         $this->judul            = $post["judul_pengalaman"];
         $this->perusahaan       = $post["nama_perusahaan"];
         $this->tahun_mulai       = $post["tahun_mulai"];
         $this->tahun_akhir      = $post["tahun_akhir"];
         
-        $var_dump($post);
-        $this->db->update('pengalaman', $this, array('id' => $post['id']));
+        // $var_dump($post);
+        $this->db->update('pengalaman', $this, array('pengalaman_id' => $post['id']));
     }
 
-    public function hapus($id)
+    public function delete($id)
     {
         return $this->db->delete('pengalaman', array("pengalaman_id" => $id));
     }

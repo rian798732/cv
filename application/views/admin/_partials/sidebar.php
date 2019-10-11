@@ -12,19 +12,19 @@
                 </div>
                 <ul class="nav">
                     <li>
-                        <a class="nav-link active" href="dashboard">
+                        <a class="nav-link active" href="<?= base_url('admin'); ?>">
                             <i class="nc-icon nc-chart-pie-35"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin/profile">
+                        <a class="nav-link" href="<?= base_url('admin/profile'); ?>">
                             <i class="nc-icon nc-air-baloon"></i>
                             <p>Biodata</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin/pengalaman">
+                        <a class="nav-link" href="<?= base_url('admin/pengalaman'); ?>">
                             <i class="nc-icon nc-bulb-63"></i>
                             <p>Pengalaman</p>
                         </a>

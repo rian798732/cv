@@ -31,7 +31,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Modal -->
+                                <!-- Modal Tambah Baru-->
                                 <div class="modal fade" id="addExperience" tabindex="-1" role="dialog" aria-hidden="true" style="top: -100px!important;">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -107,12 +107,38 @@
                                                     <button type="button" rel="tooltip" title="<?php echo $data->deskripsi ?>" class="btn btn-warning btn-simple btn-link" style="padding: 8px 8px;">
                                                         <i class="fa fa-book"></i>
                                                     </button>
+                                                    <a href="<?php echo site_url('admin/pengalaman/edit/'. $data->pengalaman_id) ?>">
                                                     <button type="button" rel="tooltip" title="Edit" class="btn btn-info btn-simple btn-link" style="padding: 8px 8px;">
                                                         <i class="fa fa-edit"></i>
                                                     </button>
-                                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link" style="padding: 8px 8px;">
+                                                    </a>
+                                                    <a onclick="deleteConfirm('<?php echo site_url('admin/pengalaman/delete/'.$data->pengalaman_id) ?>')">
+                                                    <button type="button" rel="tooltip" title="Hapus" class="btn btn-danger btn-simple btn-link" style="padding: 8px 8px;">
                                                         <i class="fa fa-times"></i>
                                                     </button>
+                                                    </a>
+
+                                                    <!-- Modal delete item -->
+
+                                                    <div class="modal fade" id="hapusPengalaman" tabindex="-1" role="dialog" aria-hidden="true" style="top: -100px!important;">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="hapusPengalamanLabel">Hapus Pengalaman</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p style="text-align: center;">Apakah anda ingin menghapus data ini?</p>
+                                                            <div class="modal-footer">
+                                                                <a id="btn-delete">
+                                                                    <button type="submit" class="btn btn-danger btn-fill pull-left" style="margin-left: 40%;">Hapus</button>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                             <?php } ?>
@@ -124,6 +150,13 @@
                     </div>
                 </div>
             </div>
+            <script>
+                function deleteConfirm(url){
+                    $('#btn-delete').attr('href', url);
+                    $('#hapusPengalaman').modal();
+                }
+            </script>
+
             <?php
                 include("_partials/footer.php");
                 include("_partials/scripts.php");
