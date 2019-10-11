@@ -21,12 +21,12 @@
                                 <div class="card-header ">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h4 class="card-title">Pendidikan</h4>
-                                            <p class="card-category">Masukkan pendidikan anda dan tambahkan disini</p>
+                                            <h4 class="card-title">My Work</h4>
+                                            <p class="card-category">Masukkan pekerjaan anda dan tambahkan disini</p>
                                         </div>
                                         <div class="col-md-6">
                                             <button type="button" class="btn btn-succcess" data-toggle="modal" data-target="#addExperience"> <i class="fa fa-plus"></i>
-                                            Pendidikan Baru
+                                            Work Baru
                                             </button>
                                         </div>
                                     </div>
@@ -36,32 +36,32 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="addExperienceLabel">Pendidikan Baru</h5>
+                                            <h5 class="modal-title" id="newTitle">Work Baru</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form method="post" action="<?= base_url('admin/pendidikan/simpan') ?>" method="post">
+                                            <form method="post" action="<?= base_url('admin/work/simpan') ?>" method="post" enctype="multipart/form-data">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label>Sekolah/Universitas</label>
-                                                            <input type="text" name="nama_sekolah" class="form-control" placeholder="Nama Sekolah/Universitas" value="">
+                                                            <label>Nama work</label>
+                                                            <input type="text" name="nama_project" class="form-control" placeholder="Nama work" value="">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label>Tahun Lulus</label>
-                                                            <input type="text" name="tahun_lulus" class="form-control" placeholder="Tahun Lulus" value="">
+                                                            <label>Link Project</label>
+                                                            <input type="text" name="link_project" class="form-control" placeholder="Masukkan link (Jika ada)" value="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <label for="message-text" class="col-form-label">Deskripsi:</label>
-                                                            <textarea class="form-control" id="message-text" name="deskripsi"></textarea>
+                                                            <label>Gambar Project</label>
+                                                            <input type="file" name="gambar" class="form-control">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -79,28 +79,25 @@
                                     <table class="table table-hover table-striped">
                                         <thead>
                                             <th>ID</th>
-                                            <th>Nama Sekolah/Universitas</th>
-                                            <th>Tahun lulus</th>
-                                            <th>Deskripsi</th>
+                                            <th>Nama Project</th>
+                                            <th>Link Project</th>
+                                            <th>Gambar</th>                                            
                                             <th>Opsi</th>
                                         </thead>
                                         <tbody>
-                                            <?php foreach ($pendidikan as $data){?>
+                                            <?php foreach($work as $data){?>
                                             <tr>
-                                                <td><?php echo $data->pendidikan_id ?></td>
-                                                <td><?php echo $data->nama_sekolah ?></td>
-                                                <td><?php echo $data->tahun_lulus ?></td>
-                                                <td><?php echo $data->deskripsi ?></td>
+                                                <td><?php echo $data->id ?></td>
+                                                <td><?php echo $data->nama_project ?></td>
+                                                <td><?php echo $data->link_project ?></td>
+                                                <td><?php echo $data->gambar ?></td>
                                                 <td class="td-actions text-right">
-                                                    <button type="button" rel="tooltip" title="<?php echo $data->deskripsi ?>" class="btn btn-warning btn-simple btn-link" style="padding: 8px 8px;">
-                                                        <i class="fa fa-book"></i>
-                                                    </button>
-                                                    <a href="<?php echo site_url('admin/pendidikan/edit/'. $data->pendidikan_id) ?>">
+                                                    <a href="<?php echo site_url('admin/work/edit/'. $data->id) ?>">
                                                     <button type="button" rel="tooltip" title="Edit" class="btn btn-info btn-simple btn-link" style="padding: 8px 8px;">
                                                         <i class="fa fa-edit"></i>
                                                     </button>
                                                     </a>
-                                                    <a onclick="deleteConfirm('<?php echo site_url('admin/pendidikan/delete/'.$data->pendidikan_id) ?>')">
+                                                    <a onclick="deleteConfirm('<?php echo site_url('admin/work/delete/'.$data->id) ?>')">
                                                     <button type="button" rel="tooltip" title="Hapus" class="btn btn-danger btn-simple btn-link" style="padding: 8px 8px;">
                                                         <i class="fa fa-times"></i>
                                                     </button>
@@ -108,11 +105,11 @@
 
                                                     <!-- Modal delete item -->
 
-                                                    <div class="modal fade" id="hapuspendidikan" tabindex="-1" role="dialog" aria-hidden="true" style="top: -100px!important;">
+                                                    <div class="modal fade" id="hapus" tabindex="-1" role="dialog" aria-hidden="true" style="top: -100px!important;">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="hapuspendidikanLabel">Hapus pendidikan</h5>
+                                                                <h5 class="modal-title" id="hapusLabel">Hapus work</h5>
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                                 </button>
@@ -141,7 +138,7 @@
             <script>
                 function deleteConfirm(url){
                     $('#btn-delete').attr('href', url);
-                    $('#hapuspendidikan').modal();
+                    $('#hapus').modal();
                 }
             </script>
 

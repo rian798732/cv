@@ -36,9 +36,21 @@
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="./table.html">
+                        <a class="nav-link" href="<?= base_url('admin/skill'); ?>">
                             <i class="nc-icon nc-settings-90"></i>
                             <p>Skill</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="<?= base_url('admin/work'); ?>">
+                            <i class="nc-icon nc-bag"></i>
+                            <p>My Work</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./table.html">
+                            <i class="nc-icon nc-layers-3"></i>
+                            <p>My Services</p>
                         </a>
                     </li>
                     <li>

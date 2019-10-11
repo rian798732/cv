@@ -1,23 +1,23 @@
 <?php
 
-class Pendidikan extends CI_Controller {
+class Skill extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-        $this->load->model("admin/pendidikan_model");
+        $this->load->model("admin/skill_model");
         $this->load->library('form_validation');
 	}
 
 	public function index()
 	{
-        $data["pendidikan"] = $this->pendidikan_model->getPendidikan();
+        $data["skill"] = $this->skill_model->getSkills();
         var_dump($data);
-		$this->load->view('admin/pendidikan', $data);
+		$this->load->view('admin/skill', $data);
 	}
 
 	public function simpan()
     {
-        $data = $this->pendidikan_model;
+        $data = $this->skill_model;
         $validation = $this->form_validation;
         $validation->set_rules($data->rules());
 
@@ -25,15 +25,15 @@ class Pendidikan extends CI_Controller {
         if ($validation->run()) {
             $data->simpan();
             $this->session->set_flashdata('success', 'Data pendidikan Berhasil ditambahkan');
-            redirect('admin/pendidikan');
+            redirect('admin/skill');
         }
 
-        $this->load->view("admin/pendidikan", $data);
+        $this->load->view("admin/skill", $data);
     }
 
     public function edit($id = null)
     {       
-        $data = $this->pendidikan_model;
+        $data = $this->skill_model;
         $validation = $this->form_validation;
         $validation->set_rules($data->rules());
 
@@ -41,22 +41,22 @@ class Pendidikan extends CI_Controller {
         if ($validation->run()) {
             $data->edit();
             $this->session->set_flashdata('success', 'Berhasil disimpan');            
-            redirect('admin/pendidikan');
+            redirect('admin/skill');
             
         }
-        $data->pendidikan = $data->getById($id);
-        if (!$data->pendidikan) show_404();
+        $data->skill = $data->getById($id);
+        if (!$data->skill) show_404();
 
         // var_dump();
-        $this->load->view("admin/edit_pendidikan", $data);
+        $this->load->view("admin/edit_skill", $data);
     }
 
     public function delete($id=null)
     {
         if (!isset($id)) show_404();
         
-        if ($this->pendidikan_model->delete($id)) {
-            redirect(site_url('admin/pendidikan'));
+        if ($this->skill_model->delete($id)) {
+            redirect(site_url('admin/skill'));
         }
     }
 }
