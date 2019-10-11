@@ -74,66 +74,26 @@
                         <li class="timeline-heading text-center animate-box">
                             <div><h3>Pengalaman</h3></div>
                         </li>
-                        <li class="animate-box timeline-unverted">
-                            <div class="timeline-badge"><i class="icon-suitcase"></i></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h3 class="timeline-title">Website Bioskop</h3>
-                                    <span class="company">QUBIT SOFTWARE - 2018</span>
+                        <?php $i=0; foreach ($pengalaman as $data): 
+                            if ($i/2 == 0){
+                                $css ="unverted";
+                            }else{
+                                $css ="inverted";
+                            }
+                            ?>
+                            <li class="animate-box timeline-<?= $css;?>">
+                                <div class="timeline-badge"><i class="icon-suitcase"></i></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h3 class="timeline-title"><?php echo $data->judul ?></h3>
+                                        <span class="company"><?php echo $data->perusahaan . " | " . $data->tahun_mulai . "-" . $data->tahun_akhir ?></span>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p><?php echo $data->deskripsi?></p>
+                                    </div>
                                 </div>
-                                <div class="timeline-body">
-                                    <p>Saya pernah magang di Qubit software pada tahun 2018, di sini saya membuat website untuk sebuah bioskop di Bali. Setelah itu membuat program kasir dan terakhir membuat tiket untuk MOVIMAX</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted animate-box">
-                            <div class="timeline-badge"><i class="icon-suitcase"></i></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h3 class="timeline-title">Membuat Website Katalog</h3>
-                                    <span class="company">WKACC - 2019</span>
-                                </div>
-                                <div class="timeline-body">
-                                    <p>Saya membuat website katalog untuk sebuah toko elektronik di Surabaya. Anda bisa melihat hasilnya disini <a>www.wkacctest.000webhost.com</a></p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-unverted animate-box">
-                            <div class="timeline-badge"><i class="icon-suitcase"></i></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h3 class="timeline-title">Program Kasir</h3>
-                                    <span class="company">QUBIT SOFTWARE - 2018</span>
-                                </div>
-                                <div class="timeline-body">
-                                    <p>Saya pernah magang di Qubit software pada tahun 2018, di sini saya membuat program kasir</a></p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted animate-box">
-                            <div class="timeline-badge"><i class="icon-suitcase"></i></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h3 class="timeline-title">Ticketing</h3>
-                                    <span class="company">QUBIT SOFTWARE - 2018</span>
-                                </div>
-                                <div class="timeline-body">
-                                    <p>Saya pernah magang di Qubit software pada tahun 2018, di sini saya membuat program kasir dan terakhir membuat tiket untuk MOVIMAX</a></p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-unverted animate-box">
-                            <div class="timeline-badge"><i class="icon-suitcase"></i></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h3 class="timeline-title">Bloging</h3>
-                                    <span class="company">KODE IT - 2017 - 2018</span>
-                                </div>
-                                <div class="timeline-body">
-                                    <p>Saya pernah membuat blog untuk artikel-artikel tutorial</a></p>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
+                        <?php $i++; endforeach; ?>
 
                         <br>
                         <li class="timeline-heading text-center animate-box">

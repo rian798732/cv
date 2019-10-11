@@ -30,7 +30,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="./table.html">
+                        <a class="nav-link" href="<?= base_url('admin/pendidikan'); ?>">
                             <i class="nc-icon nc-spaceship"></i>
                             <p>Education</p>
                         </a>
@@ -54,9 +54,9 @@
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="./maps.html">
+                        <a class="nav-link" href="<?= base_url('login/logout'); ?>">
                             <i class="nc-icon nc-pin-3"></i>
-                            <p>Maps</p>
+                            <p>Logout</p>
                         </a>
                     </li>
                 </ul>
